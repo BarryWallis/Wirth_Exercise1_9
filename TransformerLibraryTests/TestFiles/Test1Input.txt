@@ -1,0 +1,15 @@
+﻿        /// <summary>
+        /// Add a <paramref name="key"/> and its associated <paramref name="value"/> to the Dictionary.
+        /// </summary>
+        /// <param name="key">The word to look for.</param>
+        /// <param name="value">The word to repalce the <paramref name="key"/> with.</param>
+        /// <exception cref="ArgumentOutOfRangeException">The <paramref name="key"/>> or the <paramref name="value"/> contains non-alphanumeric characters.</exception>
+        public void Add(string key, string value)
+        {
+            if (!IsAlphanumeric(key))
+                throw new ArgumentOutOfRangeException(nameof(key), key, "Key must be alphanumeric.");
+            if (!IsAlphanumeric(value))
+                throw new ArgumentOutOfRangeException(nameof(value), value, "Value must be alphanumeric.");
+
+            _translationDictionary.Add(key, value);
+        }
